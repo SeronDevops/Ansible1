@@ -1,0 +1,9 @@
+---
+- name: Setup MongoDB Shard Servers
+  hosts: ansible_master
+  gather_facts: no
+  become: yes
+  tasks:
+    - name: Include MongoDB Shard Server Role
+      include_role:
+        name: mongodb_shard_server

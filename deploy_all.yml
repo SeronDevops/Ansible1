@@ -1,0 +1,21 @@
+---
+- name: Deploy Everything
+  hosts: ansible_master
+  gather_facts: no
+  become: yes
+  tasks:
+    - name: Include MongoDB Config Server Role
+      include_role:
+        name: mongodb_config_server
+
+    - name: Include MongoDB Shard Server Role
+      include_role:
+        name: mongodb_shard_server
+
+    - name: Include MongoDB Router Role
+      include_role:
+        name: mongodb_router
+
+    - name: Include Nginx Role
+      include_role:
+        name: nginx

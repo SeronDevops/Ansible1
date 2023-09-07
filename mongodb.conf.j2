@@ -1,0 +1,39 @@
+# MongoDB configuration file
+
+storage:
+  dbPath: /var/lib/mongodb
+  journal:
+    enabled: true
+
+systemLog:
+  destination: file
+  logAppend: true
+  path: /var/log/mongodb/mongod.log
+
+net:
+  port: 27017
+  bindIp: 0.0.0.0  # Allow connections from all IPs
+
+replication:
+  replSetName: myReplSet
+
+security:
+  authorization: enabled
+
+# Performance Tuning
+operationProfiling:
+  slowOpThresholdMs: 100
+
+# Authentication
+setParameter:
+  authenticationMechanisms: SCRAM-SHA-256
+
+# Access Control
+setParameter:
+  enableLocalhostAuthBypass: false
+
+# Backup Strategies
+setParameter:
+  oplogSizeMB: 1024  # Size of the oplog in megabytes
+
+# Add more configurations as needed

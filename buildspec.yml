@@ -1,0 +1,16 @@
+version: 0.2
+
+phases:
+  pre_build:
+    commands:
+      - echo "Pre-building phase"
+
+  build:
+    commands:
+      - echo "Running Ansible Playbooks"
+      - ansible-playbook -i inventory.ini playbooks/setup_mongodb_shards.yml
+      - ansible-playbook -i inventory.ini playbooks/setup_mongodb_router.yml
+
+  post_build:
+    commands:
+      - echo "Post-building phase"

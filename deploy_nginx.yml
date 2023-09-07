@@ -1,0 +1,9 @@
+---
+- name: Deploy Nginx
+  hosts: ansible_master
+  gather_facts: no
+  become: yes
+  tasks:
+    - name: Include Nginx Role
+      include_role:
+        name: nginx

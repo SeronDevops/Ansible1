@@ -1,0 +1,7 @@
+---
+- name: Setup Sharded MongoDB Cluster
+  hosts: ansible_master
+  gather_facts: no
+  become: yes
+  tasks:
+    # Tasks for setting up the sharded cluster
